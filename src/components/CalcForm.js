@@ -3,9 +3,10 @@ import './CalcForm.css';
 
 const CalcForm = ({onSalariesSubmit}) => {
 
-    const [app1Salary, setApp1Salary] = useState(0)
-    const [app2Salary, setApp2Salary] = useState(0)
-    const [deposit, setDeposit] = useState(0)
+    const [app1Salary, setApp1Salary] = useState("")
+    const [app2Salary, setApp2Salary] = useState("")
+    const [deposit, setDeposit] = useState("")
+    const [expenses, setExpenses] = useState("")
     
     const handleApp1SalaryChange = (evt) => {
         setApp1Salary(evt.target.value);
@@ -19,16 +20,22 @@ const CalcForm = ({onSalariesSubmit}) => {
         setDeposit(evt.target.value);
     }
 
+    const handleExpensesChange = (evt) => {
+        setExpenses(evt.target.value);
+    }
+
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
         onSalariesSubmit({
             app1Salary: app1Salary,
             app2Salary: app2Salary,
-            deposit: deposit
+            deposit: deposit,
+            expenses: expenses
         })
-        setApp1Salary(0);
-        setApp2Salary(0);
-        setDeposit(0);
+        setApp1Salary("");
+        setApp2Salary("");
+        setDeposit("");
+        setExpenses("")
 
     }
 
@@ -43,6 +50,8 @@ const CalcForm = ({onSalariesSubmit}) => {
         <input type="number" id="app2-salary" placeholder="enter your partner's salary"value={app2Salary} onChange={handleApp2SalaryChange}/><br />
         <label htmlFor="deposit">Deposit Amount:</label><br />
         <input type="number" id="deposit" required placeholder="enter deposit amount" value={deposit} onChange={handleDepositChange}/><br />
+        <label htmlFor="expenses">Other monthly commitments:</label><br />
+        <input type="number" id="expenses" required placeholder="enter total monthly outgoings" value={expenses} onChange={handleExpensesChange}/><br />
         <input type="submit" value="submit" />
         </form>
         </div>

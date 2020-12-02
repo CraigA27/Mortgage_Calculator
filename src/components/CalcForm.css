@@ -1,4 +1,9 @@
 input[type=number] {
     margin-bottom: 10px;
+    width: 200px;
 } 
+
+input[type=submit] {
+    width: 200px;
+}
 
