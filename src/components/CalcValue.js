@@ -1,9 +1,14 @@
 import React from 'react';
 
-const CalcValue = () => {
-    return(
-        <h1>CalcValue</h1>
-    )
+const CalcValue = ({mortgageAmount}) => {
+    if(!mortgageAmount){
+        return(
+            <p>Loading...</p>
+        )
+    }
+        return(
+        <h3>{mortgageAmount}</h3>    
+        )
 }
 
 export default CalcValue;
