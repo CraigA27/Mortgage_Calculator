@@ -16,16 +16,16 @@ const CalcContainer = () => {
 
     const calculateMortgageAmount = () => {
         const combinedSalaries = (parseInt(userDetails.app1Salary) + parseInt(userDetails.app2Salary));
-        return combinedSalaries * 3;
+        return (combinedSalaries * 3) + parseInt(userDetails.deposit);
     }
 
     useEffect(()=>{
-        console.log("useEffect running")
         setMortgageAmount(calculateMortgageAmount());
     }, [userDetails])
 
     return(
         <div className="calc-container">
+            <h1>Craig David's Mortgage Calculator</h1>
         <CalcForm onSalariesSubmit ={(salaries)=>updateUserDetails(salaries)} />
         <CalcSummary userDetails = {userDetails} />
         <CalcValue mortgageAmount = {mortgageAmount} />

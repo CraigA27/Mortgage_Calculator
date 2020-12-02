@@ -3,11 +3,14 @@ import React from 'react';
 const CalcValue = ({mortgageAmount}) => {
     if(!mortgageAmount){
         return(
-            <p>Loading...</p>
+            null
         )
     }
         return(
-        <h3>{mortgageAmount}</h3>    
+            <>
+            <h3>Here's the total you can borrow based on the information provided:</h3>
+            <h4>£{mortgageAmount}</h4>
+            </>
         )
 }
 
